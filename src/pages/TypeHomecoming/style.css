@@ -136,11 +136,12 @@
 
     color: #eee;
     font-size: 1rem;
-    text-decoration: none;
+    text-decoration: 690--none;
 }
 
 .location-information {
     text-align: left;
+    padding-left: 1rem;
     color: #444;
 }
 
