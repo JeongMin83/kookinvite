@@ -15,6 +15,7 @@ import './calendar.css';
 import moment from 'moment';
 import { firestore, getComment, createComment } from '../../utils/firebase';
 import { doc, onSnapshot } from 'firebase/firestore';
+import { setMetaTags } from '../../utils/meta';
 
 function TypeHomecoming() {
     const [comments, setComments] = useState([]);
@@ -24,6 +25,13 @@ function TypeHomecoming() {
 
     useEffect(() => {
         const fetchUserData = async () => {
+            setMetaTags({
+                title: 'kookinvite',
+                description: '모바일 초대장',
+                imageUrl:
+                    'https://firebasestorage.googleapis.com/v0/b/kookinvite-1bcc8.appspot.com/o/img.jpg?alt=media&token=26b5a7d9-39a2-4d4f-826e-e283ee8c1bdc&_gl=1*h5fsan*_ga*MTU5NzI5ODI2NS4xNjkyMDA3NzYw*_ga_CW55HF8NVT*MTY5NzAxMjY0Ny4xMTAuMS4xNjk3MDEyNjYyLjQ1LjAuMA..',
+            });
+
             const docRef = doc(firestore, collection, document);
             const unsub = await onSnapshot(doc(firestore, collection, document), (doc) => {
                 setComments(doc.data().comment);
