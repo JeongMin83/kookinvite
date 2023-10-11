@@ -1,0 +1,275 @@
+#wrap {
+    max-width: 800px;
+    min-width: 320px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+#area-main {
+    width: 100%;
+    height: 100vh;
+
+    padding-top: 20px;
+    background-color: #211d40;
+}
+
+.main-wrapper {
+    width: 95%;
+    height: 95%;
+    margin: 0 auto;
+    border: 1px solid #6c6a7e;
+}
+
+.main-subTitle {
+    height: 20%;
+}
+
+.main-subTitle-content {
+    font-size: 1rem;
+    color: #bab9c9;
+}
+
+.main-title {
+    height: 60%;
+
+    display: flex;
+    align-items: center;
+}
+
+.verticle-lr {
+    writing-mode: vertical-lr;
+    color: #bab9c9;
+    text-align: left;
+    font-size: 2rem;
+    line-height: 3rem;
+
+    margin: 0 auto;
+}
+
+.main-information {
+    height: 20%;
+    color: #bab9c9;
+}
+
+#area-greeting {
+    width: 100%;
+
+    background-color: #e6e6e6;
+    padding-bottom: 4rem;
+
+    background-image: url('../../common//images/marble.png');
+}
+
+.greeting-content {
+    width: 85%;
+    max-width: 500px;
+    margin: 0 auto;
+    margin-top: 2rem;
+
+    font-size: 1rem;
+    line-height: 2rem;
+}
+
+#area-sns {
+    width: 100%;
+    padding-top: 1rem;
+    padding-bottom: 3rem;
+    margin-top: 7rem;
+    color: #6d6d6d;
+}
+
+.sns-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 2rem 0;
+}
+
+.sns-type {
+    margin-right: 4rem;
+
+    font-size: 1.5rem;
+    width: 10rem;
+}
+
+.sns-image {
+    margin-right: 1rem;
+}
+
+#area-gallery {
+    width: 100%;
+}
+
+#area-calendar {
+    width: 100%;
+}
+
+.calendar-time {
+    font-size: 1rem;
+    color: #6c6a7e;
+    margin-bottom: 20px;
+}
+
+#area-location {
+    width: 100%;
+    padding-bottom: 20px;
+}
+
+.map {
+    width: 100%;
+    height: 150px;
+    margin: 0 auto;
+}
+
+.map-link {
+    width: 100%;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #757575;
+
+    margin: 10px auto;
+
+    color: #eee;
+    font-size: 1rem;
+    text-decoration: none;
+}
+
+.location-information {
+    text-align: left;
+    color: #444;
+}
+
+#area-comment {
+    width: 100%;
+    min-height: 300px;
+    margin-bottom: 3rem;
+}
+
+.comment-input {
+    width: 95%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+.comment-input-box {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid black;
+    margin-bottom: 10px;
+}
+
+.comment-input-text {
+    width: 7rem;
+    text-align: left;
+    font-size: 1rem;
+    margin: 0;
+}
+
+.comment-input-colon {
+    width: 1rem;
+    margin: 0;
+}
+
+.comment-input-input {
+    width: 100%;
+    height: 1.5rem;
+    font-size: 1rem;
+    padding: 5px 10px;
+    border: none;
+}
+
+.comment-input-submit {
+    width: 100%;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #757575;
+    border: none;
+
+    margin: 10px auto;
+
+    color: #eee;
+    font-size: 1rem;
+
+    margin-top: 30px;
+}
+
+.comment-list {
+}
+
+.comment-item {
+    padding: 1rem 0;
+    width: 95%;
+    margin: 10px auto;
+    border: 1px solid black;
+}
+
+.comment-item-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.8rem;
+}
+
+.comment-item-name {
+    margin: 0;
+    margin-left: 1rem;
+    color: #333;
+}
+
+.comment-item-time {
+    margin: 0;
+    margin-right: 1rem;
+    color: #777;
+}
+
+.comment-item-main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.8rem;
+}
+
+.comment-item-message {
+    margin: 0;
+    margin-top: 1rem;
+    margin-left: 1rem;
+    color: #777;
+    text-align: left;
+}
+
+.close {
+    position: relative;
+    width: 25px;
+    height: 25px;
+    margin-right: 1rem;
+    text-align: center;
+}
+
+.close:after {
+    content: '\00d7';
+    font-size: 15pt;
+    line-height: 50px;
+}
+
+.comment-item-delete-box {
+    display: none;
+}
+
+#area-footer {
+    width: 100%;
+    height: 30px;
+    font-size: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e6e6e6;
+}
