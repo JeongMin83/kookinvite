@@ -54,7 +54,7 @@ function TypeHomecoming() {
         e.target.message.value = '';
     }
 
-    function toggleCommentDelete(e) {
+    function handleCommentDelete(e) {
         e.preventDefault();
 
         console.log(1);
@@ -105,6 +105,7 @@ function TypeHomecoming() {
                     홈커밍데이를 통해 <br /> 재건의 시작을 알립니다.
                 </p>
             </div>
+
             <div id="area-gallery">
                 <img src={gallery} alt="" style={{ width: '100%' }} />
                 <img
@@ -141,32 +142,7 @@ function TypeHomecoming() {
                     formatDay={(locale, date) => moment(date).format('DD')}
                 />
             </div>
-            <div id="area-timeTable"></div>
 
-            <div id="area-sns">
-                <div className="sns-box">
-                    <div className="sns-type">
-                        <span style={{ color: '#fee034' }}>하랑</span>
-                        <span> 카카오톡</span>
-                    </div>
-                    <div className="sns-image">
-                        <a href="/">
-                            <img src={kakaoTalk} alt="" style={{ width: '4rem' }} />
-                        </a>
-                    </div>
-                </div>
-                <div className="sns-box">
-                    <div className="sns-type">
-                        <span style={{ color: '#fee034' }}>하랑</span>
-                        <span> 인스타</span>
-                    </div>
-                    <div className="sns-image">
-                        <a href="https://www.instagram.com/kmu_mis">
-                            <img src={insta} alt="" style={{ width: '4rem' }} />
-                        </a>
-                    </div>
-                </div>
-            </div>
             <div id="area-location">
                 <img src={location} alt="" style={{ width: '100%' }} />
                 <div>
@@ -186,6 +162,29 @@ function TypeHomecoming() {
                     <a href="tel:02-6710-1100" className="location-information-call">
                         <img src={call} alt="#" style={{ width: '2rem' }} />
                     </a>
+                </div>
+            </div>
+
+            <div id="area-sns">
+                <div className="sns-box">
+                    <div className="sns-type">
+                        <span>하랑 카카오톡</span>
+                    </div>
+                    <div className="sns-image">
+                        <a href="/">
+                            <img src={kakaoTalk} alt="" style={{ width: '3rem' }} />
+                        </a>
+                    </div>
+                </div>
+                <div className="sns-box">
+                    <div className="sns-type">
+                        <span>하랑 인스타</span>
+                    </div>
+                    <div className="sns-image">
+                        <a href="https://www.instagram.com/kmu_mis">
+                            <img src={insta} alt="" style={{ width: '3rem' }} />
+                        </a>
+                    </div>
                 </div>
             </div>
 
@@ -229,7 +228,7 @@ function TypeHomecoming() {
                                   </div>
                                   <div className="comment-item-main">
                                       <p className="comment-item-message">{v.message}</p>
-                                      <div className="close" onClick={toggleCommentDelete}></div>
+                                      <div className="close" onClick={handleCommentDelete}></div>
                                   </div>
                                   <div className="comment-item-delete-box">
                                       <form action="delete">
