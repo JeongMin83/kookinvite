@@ -9,13 +9,13 @@ import location from '../../common/images/location.png';
 import gallery from '../../common/images/gallery.png';
 import comment from '../../common/images/comment.png';
 import time from '../../common/images/time.png';
+import call from '../../common/images/call.png';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import './calendar.css';
 import moment from 'moment';
 import { firestore, getComment, createComment } from '../../utils/firebase';
 import { doc, onSnapshot } from 'firebase/firestore';
-import { setMetaTags } from '../../utils/meta';
 
 function TypeHomecoming() {
     const [comments, setComments] = useState([]);
@@ -25,13 +25,6 @@ function TypeHomecoming() {
 
     useEffect(() => {
         const fetchUserData = async () => {
-            setMetaTags({
-                title: 'kookinvite',
-                description: '모바일 초대장',
-                imageUrl:
-                    'https://firebasestorage.googleapis.com/v0/b/kookinvite-1bcc8.appspot.com/o/img.jpg?alt=media&token=26b5a7d9-39a2-4d4f-826e-e283ee8c1bdc&_gl=1*h5fsan*_ga*MTU5NzI5ODI2NS4xNjkyMDA3NzYw*_ga_CW55HF8NVT*MTY5NzAxMjY0Ny4xMTAuMS4xNjk3MDEyNjYyLjQ1LjAuMA..',
-            });
-
             const docRef = doc(firestore, collection, document);
             const unsub = await onSnapshot(doc(firestore, collection, document), (doc) => {
                 setComments(doc.data().comment);
@@ -105,9 +98,11 @@ function TypeHomecoming() {
                     다양한 변화를 불러왔습니다.
                     <br /> 그 영향으로 개설 이래 이어온 <br />
                     경영정보학부 네트워크에 단절이 생겼습니다.
-                    <br /> 그러나 본격적인 전면 대면 학기가 시작된 2023년,
-                    <br /> 4년만에 개최되는 홈커밍데이를 통해 <br />
-                    재건의 시작을 알립니다.
+                    <br /> 그러나 본격적인 전면 대면 학기가 시작된
+                    <br />
+                    2023년, 4년만에 개최되는
+                    <br />
+                    홈커밍데이를 통해 <br /> 재건의 시작을 알립니다.
                 </p>
             </div>
             <div id="area-gallery">
@@ -174,18 +169,21 @@ function TypeHomecoming() {
                 <img src={location} alt="" style={{ width: '100%' }} />
                 <div>
                     <Map center={{ lat: 37.5187346999467, lng: 127.0180824999451 }} level={3} className="map">
-                        <MapMarker position={{ lat: 37.5187346999467, lng: 127.0180824999451 }}>
-                            더 리버사이드 호텔
-                        </MapMarker>
+                        <MapMarker position={{ lat: 37.5187346999467, lng: 127.0180824999451 }}></MapMarker>
                     </Map>
                     <a href="https://map.kakao.com/link/map/23201274" className="map-link">
                         지도 바로가기
                     </a>
                 </div>
                 <div className="location-information">
-                    <p style={{ fontSize: '1.2rem', margin: '0', marginTop: '20px' }}>더 버리사이드 호텔 2층</p>
-                    <p style={{ margin: '0', marginTop: '10px' }}>서울 서초구 강남대로107길 6 리버사이드호텔</p>
-                    <p style={{ margin: '0', marginTop: '4px' }}>02-6710-1100</p>
+                    <p style={{ fontSize: '1rem', margin: '0', marginTop: '1rem' }}>더 리버사이드 호텔 2층</p>
+                    <p style={{ fontSize: '0.8rem', margin: '0', marginTop: '4px', color: '#777' }}>
+                        서울 서초구 강남대로107길 6
+                    </p>
+                    <p style={{ fontSize: '0.8rem', margin: '0', marginTop: '0', color: '#777' }}>02-6710-1100</p>
+                    <a href="tel:02-6710-1100" className="location-information-call">
+                        <img src={call} alt="#" style={{ width: '2rem' }} />
+                    </a>
                 </div>
             </div>
 
@@ -201,13 +199,19 @@ function TypeHomecoming() {
                     <div className="comment-input-box">
                         <p className="comment-input-text">Password</p>
                         <p className="comment-input-colon">:</p>
-                        <input type="password" name="password" className="comment-input-input" required />
+                        <input
+                            type="password"
+                            name="password"
+                            className="comment-input-input"
+                            maxLength="12"
+                            required
+                        />
                     </div>
 
                     <div className="comment-input-box">
                         <p className="comment-input-text">Message</p>
                         <p className="comment-input-colon">:</p>
-                        <input type="text" name="message" className="comment-input-input" required />
+                        <input type="text" name="message" className="comment-input-input" maxLength="70" required />
                     </div>
                     <button type="submit" className="comment-input-submit">
                         메시지 남기기
@@ -215,7 +219,7 @@ function TypeHomecoming() {
                 </form>
                 <div className="comment-list">
                     {comments
-                        ? comments.map((v) => (
+                        ? comments.map((v, i) => (
                               <div className="comment-item">
                                   <div className="comment-item-top">
                                       <p className="comment-item-name">{v.name}</p>
