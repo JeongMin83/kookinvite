@@ -146,7 +146,8 @@ function TypeHomecoming() {
             <div id="area-sns">
                 <div className="sns-box">
                     <div className="sns-type">
-                        <span>하랑 카카오톡</span>
+                        <span style={{ color: '#fee034' }}>하랑</span>
+                        <span> 카카오톡</span>
                     </div>
                     <div className="sns-image">
                         <a href="/">
@@ -156,7 +157,8 @@ function TypeHomecoming() {
                 </div>
                 <div className="sns-box">
                     <div className="sns-type">
-                        <span>하랑 인스타</span>
+                        <span style={{ color: '#fee034' }}>하랑</span>
+                        <span> 인스타</span>
                     </div>
                     <div className="sns-image">
                         <a href="https://www.instagram.com/kmu_mis">
