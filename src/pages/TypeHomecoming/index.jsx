@@ -46,6 +46,7 @@ function TypeHomecoming() {
         Swal.fire({
             icon: 'success',
             title: '댓글 작성에 성공하였습니다.',
+            customClass: 'swal-width',
         });
 
         e.target.name.value = '';
@@ -209,6 +210,7 @@ function TypeHomecoming() {
                                               Swal.fire({
                                                   title: '비밀번호를 입력해주세요',
                                                   input: 'text',
+                                                  customClass: 'swal-width',
                                                   showCancelButton: true,
                                                   confirmButtonText: '삭제',
                                                   cancelButtonText: '취소',
