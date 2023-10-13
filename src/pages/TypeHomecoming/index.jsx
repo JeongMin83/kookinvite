@@ -45,51 +45,13 @@ function TypeHomecoming() {
 
         Swal.fire({
             icon: 'success',
-            title: '댓글 작성에 성공하였습니다.',
+            title: "<span style='font-size:1.3rem'>댓글을 작성하였습니다.</span>",
             customClass: 'swal-width',
         });
 
         e.target.name.value = '';
         e.target.password.value = '';
         e.target.message.value = '';
-    }
-
-    function toggleCommentDelete(e) {
-        e.preventDefault();
-
-        console.log(e.target);
-
-        Swal.fire({
-            title: '비밀번호를 입력해주세요',
-            input: 'text',
-            inputAttributes: {
-                autocapitalize: 'off',
-            },
-            showCancelButton: true,
-            confirmButtonText: '댓글 삭제',
-            cancelButtonText: '취소',
-            showLoaderOnConfirm: true,
-            preConfirm: (login) => {
-                fetch(`//api.github.com/users/${login}`)
-                    .then((response) => {
-                        if (!response.ok) {
-                            throw new Error(response.statusText);
-                        }
-                        return response.json();
-                    })
-                    .catch((error) => {
-                        Swal.showValidationMessage(`비밀번호가 일치하지 않습니다.${login}`);
-                    });
-            },
-            allowOutsideClick: () => !Swal.isLoading(),
-        }).then((result) => {
-            if (result.isConfirmed) {
-                Swal.fire({
-                    title: `${result.value.login}'s avatar`,
-                    imageUrl: result.value.avatar_url,
-                });
-            }
-        });
     }
 
     function handleCommentDelete(e) {
@@ -208,7 +170,7 @@ function TypeHomecoming() {
                                           className="close"
                                           onClick={() => {
                                               Swal.fire({
-                                                  title: '비밀번호를 입력해주세요',
+                                                  title: "<span style='font-size:1.3rem'>비밀번호를 입력해주세요</span>",
                                                   input: 'text',
                                                   customClass: 'swal-width',
                                                   showCancelButton: true,
@@ -224,14 +186,16 @@ function TypeHomecoming() {
                                                           };
                                                           deleteComment(collection, document, value);
                                                       } else {
-                                                          Swal.showValidationMessage(`비밀번호가 일치하지 않습니다.`);
+                                                          Swal.showValidationMessage(
+                                                              "<span style='font-size:1.3rem'>비밀번호가 일치하지 않습니다.</span>",
+                                                          );
                                                       }
                                                   },
                                               }).then((result) => {
                                                   if (result.isConfirmed) {
                                                       Swal.fire({
                                                           icon: 'success',
-                                                          title: '댓글을 삭제하엿습니다.',
+                                                          title: "<span style='font-size:1.3rem'>댓글을 삭제하였습니다.</span>",
                                                       });
                                                   }
                                               });
