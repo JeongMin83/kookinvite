@@ -196,6 +196,7 @@ function TypeHomecoming() {
                                                       Swal.fire({
                                                           icon: 'success',
                                                           title: "<span style='font-size:1.3rem'>댓글을 삭제하였습니다.</span>",
+                                                          customClass: 'swal-width',
                                                       });
                                                   }
                                               });
