@@ -1,0 +1,22 @@
+#area-greeting {
+    width: 100%;
+
+    background-color: #e6e6e6;
+    padding-bottom: 4rem;
+
+    background-image: url('../../../common//images/marble.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.greeting-content {
+    width: 85%;
+    max-width: 500px;
+    margin: 0 auto;
+    margin-top: 2rem;
+
+    font-size: 1rem;
+    line-height: 2rem;
+
+    white-space: pre-line;
+}

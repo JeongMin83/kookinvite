@@ -1,21 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import './style.css';
-import { Map, MapMarker } from 'react-kakao-maps-sdk';
 import kookminIcon from '../../common/images/kookmin.png';
-import dear from '../../common/images/dear.png';
-import insta from '../../common/images/instagram.png';
-import kakaoTalk from '../../common/images/kakaoTalk.png';
-import location from '../../common/images/location.png';
-import gallery from '../../common/images/gallery.png';
+import Swal from 'sweetalert2';
 import comment from '../../common/images/comment.png';
-import time from '../../common/images/time.png';
-import call from '../../common/images/call.png';
-import Calendar from 'react-calendar';
-import 'react-calendar/dist/Calendar.css';
-import './calendar.css';
-import moment from 'moment';
-import { firestore, getComment, createComment } from '../../utils/firebase';
+import { firestore, createComment, deleteComment } from '../../utils/firebase';
 import { doc, onSnapshot } from 'firebase/firestore';
+import GalleryTypeA from '../../components/Gallery/GalleryTypeA';
+import CalendarTypeA from '../../components/Calendar/CalendarTypeA';
+import MapKakaoTypeA from '../../components/Map/MapKakaoTypeA';
+import SNSTypeA from '../../components/SNS/SNSTypeA';
+import GreetingTypeA from '../../components/Greeting/GreetingTypeA';
 
 function TypeHomecoming() {
     const [comments, setComments] = useState([]);
@@ -49,9 +43,52 @@ function TypeHomecoming() {
         };
         createComment(collection, document, value);
 
+        Swal.fire({
+            icon: 'success',
+            title: '댓글 작성에 성공하였습니다.',
+        });
+
         e.target.name.value = '';
         e.target.password.value = '';
         e.target.message.value = '';
+    }
+
+    function toggleCommentDelete(e) {
+        e.preventDefault();
+
+        console.log(e.target);
+
+        Swal.fire({
+            title: '비밀번호를 입력해주세요',
+            input: 'text',
+            inputAttributes: {
+                autocapitalize: 'off',
+            },
+            showCancelButton: true,
+            confirmButtonText: '댓글 삭제',
+            cancelButtonText: '취소',
+            showLoaderOnConfirm: true,
+            preConfirm: (login) => {
+                fetch(`//api.github.com/users/${login}`)
+                    .then((response) => {
+                        if (!response.ok) {
+                            throw new Error(response.statusText);
+                        }
+                        return response.json();
+                    })
+                    .catch((error) => {
+                        Swal.showValidationMessage(`비밀번호가 일치하지 않습니다.${login}`);
+                    });
+            },
+            allowOutsideClick: () => !Swal.isLoading(),
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire({
+                    title: `${result.value.login}'s avatar`,
+                    imageUrl: result.value.avatar_url,
+                });
+            }
+        });
     }
 
     function handleCommentDelete(e) {
@@ -89,104 +126,42 @@ function TypeHomecoming() {
                     </div>
                 </div>
             </div>
-            <div id="area-greeting">
-                <img src={dear} alt="" style={{ width: '7rem', marginTop: '20px' }} />
-                <p className="greeting-content">
-                    <span style={{ fontSize: '1.2rem' }}>Re-Build</span>
-                    <br />
-                    갑작스럽게 시작된 비대면 생활은 <br />
-                    다양한 변화를 불러왔습니다.
-                    <br /> 그 영향으로 개설 이래 이어온 <br />
-                    경영정보학부 네트워크에 단절이 생겼습니다.
-                    <br /> 그러나 본격적인 전면 대면 학기가 시작된
-                    <br />
-                    2023년, 4년만에 개최되는
-                    <br />
-                    홈커밍데이를 통해 <br /> 재건의 시작을 알립니다.
-                </p>
-            </div>
-
-            <div id="area-gallery">
-                <img src={gallery} alt="" style={{ width: '100%' }} />
-                <img
-                    src="https://firebasestorage.googleapis.com/v0/b/kookinvite-1bcc8.appspot.com/o/DSC08159.jpg?alt=media&token=0c31f0d8-34d5-4ee7-9f55-f4462201b3fe&_gl=1*jj872r*_ga*MTU5NzI5ODI2NS4xNjkyMDA3NzYw*_ga_CW55HF8NVT*MTY5Njk5OTI1NS4xMDcuMS4xNjk2OTk5OTc2LjMzLjAuMA.."
-                    alt=""
-                    style={{ width: '90%', margin: '10px auto' }}
-                />
-                <img
-                    src="https://firebasestorage.googleapis.com/v0/b/kookinvite-1bcc8.appspot.com/o/DSC07523.jpg?alt=media&token=3814ceab-e105-4642-8148-1de79867b9a7&_gl=1*1ic94b6*_ga*MTU5NzI5ODI2NS4xNjkyMDA3NzYw*_ga_CW55HF8NVT*MTY5Njk5OTI1NS4xMDcuMS4xNjk3MDAwMDg0LjUxLjAuMA.."
-                    alt=""
-                    style={{ width: '90%', margin: '10px auto' }}
-                />
-                <img
-                    src="https://firebasestorage.googleapis.com/v0/b/kookinvite-1bcc8.appspot.com/o/DSC07556.jpg?alt=media&token=8ac7ced3-8c3b-43c8-ab48-8cdfa1987799&_gl=1*trhzsy*_ga*MTU5NzI5ODI2NS4xNjkyMDA3NzYw*_ga_CW55HF8NVT*MTY5Njk5OTI1NS4xMDcuMS4xNjk3MDAwMDA4LjEuMC4w"
-                    alt=""
-                    style={{ width: '90%', margin: '10px auto' }}
-                />
-                <img
-                    src="https://firebasestorage.googleapis.com/v0/b/kookinvite-1bcc8.appspot.com/o/DSC07743.jpg?alt=media&token=4f2a5815-85d7-465c-a94e-a88a1cba8973&_gl=1*1xg2v4*_ga*MTU5NzI5ODI2NS4xNjkyMDA3NzYw*_ga_CW55HF8NVT*MTY5Njk5OTI1NS4xMDcuMS4xNjk3MDAwMDI2LjQ0LjAuMA.."
-                    alt=""
-                    style={{ width: '90%', margin: '10px auto' }}
-                />
-            </div>
-            <div id="area-calendar">
-                <img src={time} alt="" style={{ width: '100%' }} />
-                <div className="calendar-time">
-                    <span>2023.11.03 FRI PM 7:00</span>
-                </div>
-                <Calendar
-                    locale="ko"
-                    value={'2023-11-03'}
-                    next2Label={null}
-                    prev2Label={null}
-                    formatDay={(locale, date) => moment(date).format('DD')}
-                />
-            </div>
-
-            <div id="area-location">
-                <img src={location} alt="" style={{ width: '100%' }} />
-                <div>
-                    <Map center={{ lat: 37.5187346999467, lng: 127.0180824999451 }} level={3} className="map">
-                        <MapMarker position={{ lat: 37.5187346999467, lng: 127.0180824999451 }}></MapMarker>
-                    </Map>
-                    <a href="https://map.kakao.com/link/map/23201274" className="map-link">
-                        지도 바로가기
-                    </a>
-                </div>
-                <div className="location-information">
-                    <p style={{ fontSize: '1rem', margin: '0', marginTop: '1rem' }}>더 리버사이드 호텔 2층</p>
-                    <p style={{ fontSize: '0.8rem', margin: '0', marginTop: '4px', color: '#777' }}>
-                        서울 서초구 강남대로107길 6
-                    </p>
-                    <p style={{ fontSize: '0.8rem', margin: '0', marginTop: '0', color: '#777' }}>02-6710-1100</p>
-                    <a href="tel:02-6710-1100" className="location-information-call">
-                        <img src={call} alt="#" style={{ width: '2rem' }} />
-                    </a>
-                </div>
-            </div>
-
-            <div id="area-sns">
-                <div className="sns-box">
-                    <div className="sns-type">
-                        <span>하랑 카카오톡</span>
-                    </div>
-                    <div className="sns-image">
-                        <a href="/">
-                            <img src={kakaoTalk} alt="" style={{ width: '3rem' }} />
-                        </a>
-                    </div>
-                </div>
-                <div className="sns-box">
-                    <div className="sns-type">
-                        <span>하랑 인스타</span>
-                    </div>
-                    <div className="sns-image">
-                        <a href="https://www.instagram.com/kmu_mis">
-                            <img src={insta} alt="" style={{ width: '3rem' }} />
-                        </a>
-                    </div>
-                </div>
-            </div>
+            <GreetingTypeA
+                content={
+                    <>
+                        <span style={{ fontSize: '1.2rem' }}>Re-Build</span>
+                        <br />
+                        갑작스럽게 시작된 비대면 생활은 <br />
+                        다양한 변화를 불러왔습니다.
+                        <br /> 그 영향으로 개설 이래 이어온 <br />
+                        경영정보학부 네트워크에 단절이 생겼습니다.
+                        <br /> 그러나 본격적인 전면 대면 학기가 시작된
+                        <br />
+                        2023년, 4년만에 개최되는
+                        <br />
+                        홈커밍데이를 통해 <br /> 재건의 시작을 알립니다.
+                    </>
+                }
+            />
+            <GalleryTypeA
+                value={[
+                    'https://firebasestorage.googleapis.com/v0/b/kookinvite-1bcc8.appspot.com/o/DSC08159.jpg?alt=media&token=0c31f0d8-34d5-4ee7-9f55-f4462201b3fe&_gl=1*jj872r*_ga*MTU5NzI5ODI2NS4xNjkyMDA3NzYw*_ga_CW55HF8NVT*MTY5Njk5OTI1NS4xMDcuMS4xNjk2OTk5OTc2LjMzLjAuMA..',
+                    'https://firebasestorage.googleapis.com/v0/b/kookinvite-1bcc8.appspot.com/o/DSC07523.jpg?alt=media&token=3814ceab-e105-4642-8148-1de79867b9a7&_gl=1*1ic94b6*_ga*MTU5NzI5ODI2NS4xNjkyMDA3NzYw*_ga_CW55HF8NVT*MTY5Njk5OTI1NS4xMDcuMS4xNjk3MDAwMDg0LjUxLjAuMA..',
+                    'https://firebasestorage.googleapis.com/v0/b/kookinvite-1bcc8.appspot.com/o/DSC07556.jpg?alt=media&token=8ac7ced3-8c3b-43c8-ab48-8cdfa1987799&_gl=1*trhzsy*_ga*MTU5NzI5ODI2NS4xNjkyMDA3NzYw*_ga_CW55HF8NVT*MTY5Njk5OTI1NS4xMDcuMS4xNjk3MDAwMDA4LjEuMC4w',
+                    'https://firebasestorage.googleapis.com/v0/b/kookinvite-1bcc8.appspot.com/o/DSC07743.jpg?alt=media&token=4f2a5815-85d7-465c-a94e-a88a1cba8973&_gl=1*1xg2v4*_ga*MTU5NzI5ODI2NS4xNjkyMDA3NzYw*_ga_CW55HF8NVT*MTY5Njk5OTI1NS4xMDcuMS4xNjk3MDAwMDI2LjQ0LjAuMA..',
+                ]}
+            />
+            <CalendarTypeA time="2023.11.03 FRI PM 7:00" dateValue="2023-11-03" />
+            <MapKakaoTypeA
+                lat="37.5187346999467"
+                lng="127.0180824999451"
+                level="3"
+                mapHref="https://map.kakao.com/link/map/23201274"
+                name="더 리버사이드 호텔"
+                address="서울 서초구 강남대로 107길 6"
+                number="02-6710-1100"
+            />
+            <SNSTypeA name="하랑" kakaoHref="/" instaHref="https://www.instagram.com/kmu_mis" />
 
             <div id="area-comment">
                 <img src={comment} alt="" style={{ width: '100%' }} />
@@ -228,17 +203,48 @@ function TypeHomecoming() {
                                   </div>
                                   <div className="comment-item-main">
                                       <p className="comment-item-message">{v.message}</p>
-                                      <div className="close" onClick={handleCommentDelete}></div>
+                                      <div
+                                          className="close"
+                                          onClick={() => {
+                                              Swal.fire({
+                                                  title: '비밀번호를 입력해주세요',
+                                                  input: 'text',
+                                                  showCancelButton: true,
+                                                  confirmButtonText: '삭제',
+                                                  cancelButtonText: '취소',
+                                                  preConfirm: (password) => {
+                                                      if (password == v.password || password == 'admin1103') {
+                                                          const value = {
+                                                              name: v.name,
+                                                              time: v.time,
+                                                              password: v.password,
+                                                              message: v.message,
+                                                          };
+                                                          deleteComment(collection, document, value);
+                                                      } else {
+                                                          Swal.showValidationMessage(`비밀번호가 일치하지 않습니다.`);
+                                                      }
+                                                  },
+                                              }).then((result) => {
+                                                  if (result.isConfirmed) {
+                                                      Swal.fire({
+                                                          icon: 'success',
+                                                          title: '댓글을 삭제하엿습니다.',
+                                                      });
+                                                  }
+                                              });
+                                          }}
+                                      ></div>
                                   </div>
-                                  <div className="comment-item-delete-box">
+                                  <div className="comment-item-delete-box ">
                                       <form action="delete">
                                           <input type="password" required />
-                                          <button>삭제하기</button>
+                                          <button onClick={handleCommentDelete}>삭제하기</button>
                                       </form>
                                   </div>
                               </div>
                           ))
-                        : '1'}
+                        : ''}
                 </div>
             </div>
             <div id="area-footer">@Jin</div>

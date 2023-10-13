@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app';
-import { getFirestore, doc, getDoc, updateDoc, arrayUnion } from 'firebase/firestore';
+import { getFirestore, doc, getDoc, updateDoc, arrayUnion, arrayRemove } from 'firebase/firestore';
 import { getStorage } from 'firebase/storage';
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -43,5 +43,16 @@ export const createComment = async (collection, document, value) => {
     } catch (error) {
         console.log('댓글 작성 실패');
         throw error;
+    }
+};
+
+export const deleteComment = async (collection, document, value) => {
+    const docRef = doc(firestore, collection, document);
+
+    try {
+        const deleteComment = await updateDoc(docRef, { comment: arrayRemove(value) });
+        console.log('댓글 삭제에 성공했습니다');
+    } catch (error) {
+        console.error('댓글 삭제에 실패했습니다.', error);
     }
 };
