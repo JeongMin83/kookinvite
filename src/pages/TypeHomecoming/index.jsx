@@ -10,7 +10,11 @@ import CalendarTypeA from '../../components/Calendar/CalendarTypeA';
 import MapKakaoTypeA from '../../components/Map/MapKakaoTypeA';
 import SNSTypeA from '../../components/SNS/SNSTypeA';
 import GreetingTypeA from '../../components/Greeting/GreetingTypeA';
-import homcomemingMain from '../../common/images/homecomeingMain.png';
+import homcomemingMain from '../../common/images/homecomeingMain.webp';
+import gallery01 from '../../common/images/gallery01.webp';
+import gallery02 from '../../common/images/gallery02.webp';
+import gallery03 from '../../common/images/gallery03.webp';
+import gallery04 from '../../common/images/gallery04.webp';
 import imageCompression from 'browser-image-compression';
 import Loading from '../../components/Loading';
 
@@ -84,14 +88,7 @@ function TypeHomecoming() {
                     </>
                 }
             />
-            <GalleryTypeA
-                value={[
-                    'https://firebasestorage.googleapis.com/v0/b/kookinvite-1bcc8.appspot.com/o/DSC08159.jpg?alt=media&token=0c31f0d8-34d5-4ee7-9f55-f4462201b3fe&_gl=1*jj872r*_ga*MTU5NzI5ODI2NS4xNjkyMDA3NzYw*_ga_CW55HF8NVT*MTY5Njk5OTI1NS4xMDcuMS4xNjk2OTk5OTc2LjMzLjAuMA..',
-                    'https://firebasestorage.googleapis.com/v0/b/kookinvite-1bcc8.appspot.com/o/DSC07523.jpg?alt=media&token=3814ceab-e105-4642-8148-1de79867b9a7&_gl=1*1ic94b6*_ga*MTU5NzI5ODI2NS4xNjkyMDA3NzYw*_ga_CW55HF8NVT*MTY5Njk5OTI1NS4xMDcuMS4xNjk3MDAwMDg0LjUxLjAuMA..',
-                    'https://firebasestorage.googleapis.com/v0/b/kookinvite-1bcc8.appspot.com/o/DSC07556.jpg?alt=media&token=8ac7ced3-8c3b-43c8-ab48-8cdfa1987799&_gl=1*trhzsy*_ga*MTU5NzI5ODI2NS4xNjkyMDA3NzYw*_ga_CW55HF8NVT*MTY5Njk5OTI1NS4xMDcuMS4xNjk3MDAwMDA4LjEuMC4w',
-                    'https://firebasestorage.googleapis.com/v0/b/kookinvite-1bcc8.appspot.com/o/DSC07743.jpg?alt=media&token=4f2a5815-85d7-465c-a94e-a88a1cba8973&_gl=1*1xg2v4*_ga*MTU5NzI5ODI2NS4xNjkyMDA3NzYw*_ga_CW55HF8NVT*MTY5Njk5OTI1NS4xMDcuMS4xNjk3MDAwMDI2LjQ0LjAuMA..',
-                ]}
-            />
+            <GalleryTypeA value={[gallery01, gallery02, gallery03, gallery04]} />
             <CalendarTypeA time="2023.11.03 FRI PM 7:00" dateValue="2023-11-03" />
             <MapKakaoTypeA
                 lat="37.5187346999467"
