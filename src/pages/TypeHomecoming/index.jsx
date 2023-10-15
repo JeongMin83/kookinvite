@@ -63,7 +63,7 @@ function TypeHomecoming() {
     return (
         <div id="wrap">
             <div id="area-main">
-                <div className="main-wrapper">
+                {/* <div className="main-wrapper">
                     <div className="main-subTitle">
                         <img src={kookminIcon} alt="" style={{ width: '2rem', marginTop: '20px' }} />
                         <div className="main-subTitle-content">
@@ -87,7 +87,7 @@ function TypeHomecoming() {
                             <br />더 리버사이드 호텔 노벨리홀
                         </p>
                     </div>
-                </div>
+                </div> */}
             </div>
             <GreetingTypeA
                 content={

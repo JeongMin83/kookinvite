@@ -1,7 +1,7 @@
 import React from 'react';
 import './style.css';
 import insta from '../../../common/images/instagram.png';
-import kakaoTalk from '../../../common/images/kakaoTalk.png';
+import facebook from '../../../common/images/facebook.png';
 
 function SNSTypeA(props) {
     return (
@@ -12,7 +12,7 @@ function SNSTypeA(props) {
                 </div>
                 <div className="sns-image">
                     <a href={props.kakaoHref}>
-                        <img src={kakaoTalk} alt="" style={{ width: '3rem' }} />
+                        <img src={facebook} alt="" style={{ width: '3rem' }} />
                     </a>
                 </div>
             </div>
