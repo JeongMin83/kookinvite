@@ -95,8 +95,8 @@ function TypeHomecoming() {
                 lng="127.0180824999451"
                 level="3"
                 mapHref="https://map.kakao.com/link/map/23201274"
-                name="더 리버사이드 호텔"
-                address="서울 서초구 강남대로 107길 6"
+                name="더 리버사이드 호텔 노벨라홀"
+                address="서울 서초구 강남대로 107길 6 지하 1층"
                 number="02-6710-1100"
             />
             <SNSTypeA
