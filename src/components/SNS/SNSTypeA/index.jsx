@@ -11,7 +11,7 @@ function SNSTypeA(props) {
                     <span>{props.name} 페이스북</span>
                 </div>
                 <div className="sns-image">
-                    <a href={props.kakaoHref}>
+                    <a href={props.facebookHref}>
                         <img src={facebook} alt="" style={{ width: '3rem' }} />
                     </a>
                 </div>
