@@ -31,7 +31,7 @@ function TypeHomecoming() {
                 unsub();
             };
         };
-        setTimeout(() => setLoading(false), 5000);
+        setTimeout(() => setLoading(false), 3500);
 
         fetchUserData();
     }, []);
@@ -69,41 +69,6 @@ function TypeHomecoming() {
 
             <div id="area-main">
                 <img src={homcomemingMain} alt="" className="main-img" />
-                {/* <div className="main-arch-out"></div>
-                <div className="main-arch-in">
-                    <div className="main-arch-in-content">
-                        <div className="main-arch-in-content-box">
-                            <span>일시</span>
-                            <span>11월 3일(금) 오후 7시</span>
-                        </div>
-                    </div>
-                </div> */}
-
-                {/* <div className="main-wrapper">
-                    <div className="main-subTitle">
-                        <img src={kookminIcon} alt="" style={{ width: '2rem', marginTop: '20px' }} />
-                        <div className="main-subTitle-content">
-                            <p>
-                                You`re invited <br />
-                                to 2023 MIS Homecomingday
-                            </p>
-                        </div>
-                    </div>
-                    <div className="main-title">
-                        <p className="verticle-lr">
-                            경영정보학부
-                            <br />
-                            홈커밍데이
-                        </p>
-                    </div>
-                    <div className="main-information">
-                        <p>제37대 경영정보학부 학생회 '하랑'</p>
-                        <p>
-                            2023.11.03 FRI PM 7:00
-                            <br />더 리버사이드 호텔 노벨리홀
-                        </p>
-                    </div>
-                </div> */}
             </div>
             <GreetingTypeA
                 content={
@@ -122,14 +87,14 @@ function TypeHomecoming() {
                     </>
                 }
             />
-            {/* <GalleryTypeA
+            <GalleryTypeA
                 value={[
                     'https://firebasestorage.googleapis.com/v0/b/kookinvite-1bcc8.appspot.com/o/DSC08159.jpg?alt=media&token=0c31f0d8-34d5-4ee7-9f55-f4462201b3fe&_gl=1*jj872r*_ga*MTU5NzI5ODI2NS4xNjkyMDA3NzYw*_ga_CW55HF8NVT*MTY5Njk5OTI1NS4xMDcuMS4xNjk2OTk5OTc2LjMzLjAuMA..',
                     'https://firebasestorage.googleapis.com/v0/b/kookinvite-1bcc8.appspot.com/o/DSC07523.jpg?alt=media&token=3814ceab-e105-4642-8148-1de79867b9a7&_gl=1*1ic94b6*_ga*MTU5NzI5ODI2NS4xNjkyMDA3NzYw*_ga_CW55HF8NVT*MTY5Njk5OTI1NS4xMDcuMS4xNjk3MDAwMDg0LjUxLjAuMA..',
                     'https://firebasestorage.googleapis.com/v0/b/kookinvite-1bcc8.appspot.com/o/DSC07556.jpg?alt=media&token=8ac7ced3-8c3b-43c8-ab48-8cdfa1987799&_gl=1*trhzsy*_ga*MTU5NzI5ODI2NS4xNjkyMDA3NzYw*_ga_CW55HF8NVT*MTY5Njk5OTI1NS4xMDcuMS4xNjk3MDAwMDA4LjEuMC4w',
                     'https://firebasestorage.googleapis.com/v0/b/kookinvite-1bcc8.appspot.com/o/DSC07743.jpg?alt=media&token=4f2a5815-85d7-465c-a94e-a88a1cba8973&_gl=1*1xg2v4*_ga*MTU5NzI5ODI2NS4xNjkyMDA3NzYw*_ga_CW55HF8NVT*MTY5Njk5OTI1NS4xMDcuMS4xNjk3MDAwMDI2LjQ0LjAuMA..',
                 ]}
-            /> */}
+            />
             <CalendarTypeA time="2023.11.03 FRI PM 7:00" dateValue="2023-11-03" />
             <MapKakaoTypeA
                 lat="37.5187346999467"
