@@ -102,7 +102,11 @@ function TypeHomecoming() {
                 address="서울 서초구 강남대로 107길 6"
                 number="02-6710-1100"
             />
-            <SNSTypeA name="하랑" kakaoHref="/" instaHref="https://www.instagram.com/kmu_mis" />
+            <SNSTypeA
+                name="하랑"
+                kakaoHref="https://www.facebook.com/KookminMIS/"
+                instaHref="https://www.instagram.com/kmu_mis"
+            />
 
             <div id="area-comment">
                 <img src={comment} alt="" style={{ width: '100%' }} />
