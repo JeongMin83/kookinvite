@@ -73,17 +73,14 @@ function TypeHomecoming() {
             <GreetingTypeA
                 content={
                     <>
-                        <span style={{ fontSize: '1.2rem' }}>Re-Build</span>
+                        <span style={{ fontSize: '1rem' }}>Re-Build</span>
                         <br />
                         갑작스럽게 시작된 비대면 생활은 <br />
                         다양한 변화를 불러왔습니다.
                         <br /> 그 영향으로 개설 이래 이어온 <br />
                         경영정보학부 네트워크에 단절이 생겼습니다.
-                        <br /> 그러나 본격적인 전면 대면 학기가 시작된
-                        <br />
-                        2023년, 4년만에 개최되는
-                        <br />
-                        홈커밍데이를 통해 <br /> 재건의 시작을 알립니다.
+                        <br /> 그러나 본격적인 전면 대면 학기가 시작된 2023년,
+                        <br /> 4년만에 개최되는 홈커밍데이를 통해 <br /> 재건의 시작을 알립니다.
                     </>
                 }
             />

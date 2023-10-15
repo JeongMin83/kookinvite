@@ -2,7 +2,7 @@
     width: 100%;
 
     background-color: #e6e6e6;
-    padding-bottom: 4rem;
+    padding-bottom: 3rem;
 
     background-image: url('../../../common//images/marble.png');
     background-repeat: no-repeat;
@@ -13,10 +13,10 @@
     width: 85%;
     max-width: 500px;
     margin: 0 auto;
-    margin-top: 2rem;
+    margin-top: 1rem;
 
-    font-size: 1rem;
-    line-height: 2rem;
+    font-size: 0.9rem;
+    line-height: 1.5rem;
 
     white-space: pre-line;
 }
