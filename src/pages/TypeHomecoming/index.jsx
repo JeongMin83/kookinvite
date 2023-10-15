@@ -104,7 +104,7 @@ function TypeHomecoming() {
             />
             <SNSTypeA
                 name="하랑"
-                kakaoHref="https://www.facebook.com/KookminMIS/"
+                facebookHref="https://www.facebook.com/KookminMIS/"
                 instaHref="https://www.instagram.com/kmu_mis"
             />
 

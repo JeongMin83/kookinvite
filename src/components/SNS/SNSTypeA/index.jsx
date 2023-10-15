@@ -8,7 +8,7 @@ function SNSTypeA(props) {
         <div id="area-sns">
             <div className="sns-box">
                 <div className="sns-type">
-                    <span>{props.name} 카카오톡</span>
+                    <span>{props.name} 페이스북</span>
                 </div>
                 <div className="sns-image">
                     <a href={props.kakaoHref}>
